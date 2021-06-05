@@ -1,0 +1,1 @@
+Este trabalho está sob licença FreeBSD (Berkeley Software Distribution). A autora permite o uso de código-fonte mediante citação, porém sem responsabilidade em qualquer dano causado pelo uso ou modificação do hardware/software.
