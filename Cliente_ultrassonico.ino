@@ -1,6 +1,14 @@
 /*
-    This sketch establishes a TCP connection to a "quote of the day" service.
-    It sends a "hello" message, and then prints received data.
+    Sketch utilizado para plataforma ESP-WROOM-02 cliente 1, contendo um sensor ultrassônico
+    Escrito por Gedeane Kenshima (2020)
+    Uso com permissão desde que citada a fonte (licença BSD)
+    
+    Conexões:
+    TRIGGER sensor: D3
+    ECHO sensor: D4
+    VCC: 5V
+    GND: G
+    
 */
 
 #include <ESP8266WiFi.h>
@@ -75,9 +83,13 @@ void loop() {
   delayMicroseconds(10);          //Enviamos um pulso de 10us
   digitalWrite(Trigger, LOW);
   
-  t = pulseIn(Echo, HIGH); //obtemos eco do pulso
-  d = (t/59)*10;             //escalamos o tempo a uma distância em cm
+  // Oobtemos eco do pulso
+  t = pulseIn(Echo, HIGH);
+  // Eescalamos o tempo a uma distância em cm
+  d = (t/59)*10;   
+  // Envia dado para Serial    
   Serial.println(d);
+  // Envia dado para servidor
   client.println(d);
 
   }
